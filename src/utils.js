@@ -1,11 +1,11 @@
-const createNewGrid =  (gridLabels) => {
+export const createNewGrid =  (gridLabels) => {
     return gridLabels.map(row => {
         const newRow = [...row];
         return newRow;
     })
 }
 
-const moveTilesRight = (newGrid, movementOfTiles) => {
+export const moveTilesRight = (newGrid, movementOfTiles) => {
     for(let row = 0; row < newGrid.length; row++) {
         for(let tile = 3; tile >= 0; tile--) {
             if(newGrid[row][3] === null && newGrid[row][tile] !== null && tile < 3) {
@@ -46,7 +46,7 @@ const moveTilesRight = (newGrid, movementOfTiles) => {
     return {newGrid, movementOfTiles}
 }
 
-const moveTilesLeft = (newGrid, movementOfTiles) => {
+export const moveTilesLeft = (newGrid, movementOfTiles) => {
     for(let row = 0; row < newGrid.length; row++) {
         for(let tile = 1; tile <= 3; tile++) {
             if(newGrid[row][0] === null && newGrid[row][tile] !== null && tile > 0) {
@@ -87,7 +87,7 @@ const moveTilesLeft = (newGrid, movementOfTiles) => {
     return {newGrid, movementOfTiles}
 }
 
-const moveTilesDown = (newGrid, movementOfTiles) => {
+export const moveTilesDown = (newGrid, movementOfTiles) => {
     for(let tile = 3; tile >= 0; tile--) {
         for(let row = 3; row >= 0; row--) {
             if(newGrid[3][tile] === null && newGrid[row][tile] !== null && row < 3) {
@@ -128,7 +128,7 @@ const moveTilesDown = (newGrid, movementOfTiles) => {
     return {newGrid, movementOfTiles}
 }
 
-const moveTilesUp = (newGrid, movementOfTiles) => {
+export const moveTilesUp = (newGrid, movementOfTiles) => {
     for(let tile = 0; tile <= 3; tile++) {
         for(let row = 0; row <= 3; row++) {
             if(newGrid[0][tile] === null && newGrid[row][tile] !== null && row > 0) {
@@ -169,7 +169,7 @@ const moveTilesUp = (newGrid, movementOfTiles) => {
     return {newGrid, movementOfTiles}
 }
 
-const addNewTile = (gridLabels) => {
+export const addNewTile = (gridLabels) => {
     const newTile1 = Math.floor((Math.random()*16));
     const twoOrFour = Math.random() < 0.8 ? 2 : 4;
 
@@ -183,8 +183,8 @@ const addNewTile = (gridLabels) => {
         return gridLabels
     }}
 
-const checkNoMoreLegalMoves = (gridLabels) => {
+export const checkNoMoreLegalMoves = (gridLabels) => {
     
 }
 
-module.exports = {createNewGrid, moveTilesRight, moveTilesLeft, moveTilesDown, moveTilesUp, addNewTile, checkNoMoreLegalMoves}
+// module.exports = {createNewGrid, moveTilesRight, moveTilesLeft, moveTilesDown, moveTilesUp, addNewTile, checkNoMoreLegalMoves}
