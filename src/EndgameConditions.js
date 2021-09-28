@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const EndgameConditions = (grid, moveTiles, moves) => {
     let gameOver = grid.some(row => row.includes(2048));
     
@@ -36,8 +34,6 @@ const EndgameConditions = (grid, moveTiles, moves) => {
         gameOverColumn = true;
     }
 }
-
-   
 
     if(gameOverRow && gameOverColumn) {
         return "You lost... You only lasted " + moves + " moves :("
