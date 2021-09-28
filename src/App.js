@@ -1,11 +1,11 @@
 import './App.css';
-import { useState } from "react"
-import Header from "./Header";
+import {useState} from "react"
+import  Header  from "./Header";
 import Score from "./Score"
 import Game from "./Game"
 import NewGame from "./NewGame"
 import EndgameConditions from './EndgameConditions';
-import { createNewGrid, moveTilesRight, moveTilesLeft, moveTilesDown, moveTilesUp, addNewTile } from './utils';
+import { createNewGrid, moveTilesRight , moveTilesLeft, moveTilesDown, moveTilesUp, addNewTile} from './utils';
 
 function App() {
     const [grid, setGrid] = useState([
@@ -18,7 +18,7 @@ function App() {
     const [moves, setMoves] = useState(0)
 
     const moveTiles = (event) => {
-        if (event.which === 39) { //Right Move
+        if(event.which === 39) { //Right Move
             setGrid(() => {
                 const newGrid = createNewGrid(grid)
                 const moveRight = moveTilesRight(newGrid, 0)
@@ -66,7 +66,7 @@ function App() {
                 }
                 return moveUp.newGrid;
             })
-        }
+        } 
         // else {
         //     setGrid([
         //         [2, 4, 8, 16],
@@ -79,20 +79,13 @@ function App() {
 
     const end = EndgameConditions(grid, moveTiles, moves);
 
-    return ( < div className = "App" >
-        <
-        Header / >
-        <
-        Score moves = { moves }
-        /> <
-        h2 > { end } < /h2> <
-        Game grid = { grid }
-        /> <
-        NewGame setMoves = { setMoves }
-        setGrid = { setGrid }
-        moveTiles = { moveTiles }
-        /> <
-        /div>
+    return ( < div className = "App">
+        <Header />
+        <Score moves={moves}/>
+        <h2>{end}</h2>
+        <Game grid={grid}/>
+        <NewGame setMoves={setMoves} setGrid={setGrid} moveTiles={moveTiles}/>
+        </div>
     );
 }
 
