@@ -102,3 +102,15 @@ h1 {
     position: flex;
     margin: auto;
 }
+
+.highScores {
+    position: absolute;
+    top: 135px;
+    right: 1000px;
+    /* width: 300px; */
+}
+
+.highScores table {
+    width: 400px;
+    height: auto;
+}

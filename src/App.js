@@ -6,6 +6,7 @@ import Game from "./Game"
 import NewGame from "./NewGame"
 import EndgameConditions from './EndgameConditions';
 import { createNewGrid, moveTilesRight , moveTilesLeft, moveTilesDown, moveTilesUp, addNewTile} from './utils';
+import HighScores from './HighScores';
 
 function App() {
     const [grid, setGrid] = useState([
@@ -85,6 +86,7 @@ function App() {
         <h2>{end}</h2>
         <Game grid={grid}/>
         <NewGame setMoves={setMoves} setGrid={setGrid} moveTiles={moveTiles}/>
+        <HighScores />  
         </div>
     );
 }
