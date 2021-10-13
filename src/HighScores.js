@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 const HighScores = () => {
     const [scores, setScores] = useState([]);
     useEffect(() => {
-        fetch("localhost:7070/api/scores/")
+        fetch("https://edd-2048-backend.herokuapp.com/api/")
         .then(({scores}) => {
             setScores(scores);
+        })
+        .catch(error => {
+            console.log(error);
         })
     }, [])
 
