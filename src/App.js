@@ -79,7 +79,7 @@ function App() {
         // }
     }
 
-    const end = EndgameConditions(grid, moveTiles, moves, sethit2048);
+    const end = EndgameConditions(grid, moveTiles, moves, sethit2048, time);
 
     return ( < div className = "App">
         <Header />

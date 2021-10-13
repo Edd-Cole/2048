@@ -1,19 +1,34 @@
 import { postScore } from "./utils";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const EndgameConditions = (grid, moveTiles, moves, sethit2048) => {
+const EndgameConditions = (grid, moveTiles, moves, sethit2048, time) => {
+    const [name, setName] = useState("");
     let gameOver = grid.some(row => row.includes(2048));
 
     useEffect(() => {
         if(grid.some(row => row.includes(2048))) {
             sethit2048(true);
-            return postScore(moves);
         }
     }, [gameOver])
     
     if(gameOver) {
         document.removeEventListener("keydown", moveTiles);
-        return "CONGRATULATIONS, YOU WON & YOU DID IT IN " + moves + " MOVES!";
+        return (
+            <section>
+            <p>CONGRATULATIONS, YOU WON AND YOU DID IT IN {moves} MOVES!</p>
+            <p>Submit your score:</p>
+            <form onSubmit={async(event) => {
+                event.preventDefault();
+                await postScore(moves, time, name)
+                .then(() => {
+                    window.location.reload(true);
+                });
+            }}>
+                <label htmlFor="playerName" />
+                <input id="playerName" autoComplete="off" type="text" placeholder="Your Name..." value={name} onChange={(event) => setName(event.target.value)} required></input><br />
+                <input type="submit" value="Submit" />
+            </form>
+            </section>)
     }
 
     let gameOverRow = null;

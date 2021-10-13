@@ -187,7 +187,8 @@ export const checkNoMoreLegalMoves = (gridLabels) => {
     
 }
 
-export const postScore = ( moves) => {
+export const postScore = ( moves, time, name ) => {
+    let timeValue = Math.floor(time / 60) + ":" + (time % 60);
     return fetch("https://edd-2048-backend.herokuapp.com/api/scores", {
         method: "POST",
         mode: 'cors',
@@ -198,8 +199,12 @@ export const postScore = ( moves) => {
         },
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
-        body: JSON.stringify({name: "Test", score: moves, time: "10:00", highest_tile: 2048})
+        body: JSON.stringify({name: name, score: moves, time: timeValue, highest_tile: 2048})
     })
+    .then(response => response.json())
+    // .catch(error => {
+    //     console.log(error)
+    // })
 }
 
 export const startTime = (setTime, isTiming, setIsTiming) => {
