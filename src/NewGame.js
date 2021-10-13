@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { startTime } from "./utils";
 
-const NewGame = ({setMoves, setGrid, moveTiles, sethit2048}) => {
+const NewGame = ({setMoves, setGrid, moveTiles, sethit2048, setTime}) => {
+    const [isTiming, setIsTiming] = useState(false);
     const recreateGrid = () => {
         const newTile1 = Math.floor((Math.random()*16));
         const newTile2 = Math.floor((Math.random()*16));
@@ -45,6 +47,7 @@ return (
         <button onClick={() => {
             sethit2048(false);
             recreateGrid();
+            startTime(setTime, isTiming, setIsTiming);
         }}>New Game</button>
     </section>
 );

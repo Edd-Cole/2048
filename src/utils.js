@@ -202,4 +202,32 @@ export const postScore = ( moves) => {
     })
 }
 
+export const startTime = (setTime, isTiming, setIsTiming) => {
+    setTime(0)
+    if(!isTiming){
+        setIsTiming(true);
+        setInterval(() => {
+            setTime(time => {
+                return time +1
+            });
+        },1000)
+    }
+}
+
+export const createTime = (time) => {
+    let timeStamp = Math.floor(time / 60) + ":" + time % 60;
+    if (timeStamp.length < 4) {
+        timeStamp = "0" + Math.floor(time / 60) + ":" + "0" + time % 60;
+        return timeStamp;
+    } else if (timeStamp.length < 5 && timeStamp.indexOf(":") === 1) {
+        timeStamp = "0" + Math.floor(time / 60) + ":" + time % 60;
+        return timeStamp;
+    } else if (timeStamp.length < 5 && timeStamp.indexOf(":") === 2) {
+        timeStamp = "0" + Math.floor(time / 60) + ":" + time % 60;
+        return timeStamp;
+    } else {
+        return timeStamp;
+    }
+}
+
 // module.exports = {createNewGrid, moveTilesRight, moveTilesLeft, moveTilesDown, moveTilesUp, addNewTile, checkNoMoreLegalMoves}

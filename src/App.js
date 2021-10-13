@@ -16,7 +16,7 @@ function App() {
         [null, null, null, null]
     ])
     const [hit2048, sethit2048] = useState(false);
-
+    const [time, setTime] = useState(0);
     const [moves, setMoves] = useState(0)
 
     const moveTiles = (event) => {
@@ -83,10 +83,10 @@ function App() {
 
     return ( < div className = "App">
         <Header />
-        <Score moves={moves}/>
+        <Score moves={moves} time={time}/>
         <h2>{end}</h2>
         <Game grid={grid}/>
-        <NewGame setMoves={setMoves} setGrid={setGrid} moveTiles={moveTiles} sethit2048={sethit2048}/>
+        <NewGame setMoves={setMoves} setGrid={setGrid} moveTiles={moveTiles} sethit2048={sethit2048} setTime={setTime}/>
         <HighScores hit2048={hit2048}/>  
         </div>
     );
