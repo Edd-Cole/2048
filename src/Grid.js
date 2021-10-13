@@ -2,7 +2,7 @@ const Grid = (props) => {
     const {grid} = props;
     return (
         <section>
-            <table>
+            <table className="gameGrid">
                 {grid.map(row => {
                     return (<tr>
                         {row.map(tile => 
