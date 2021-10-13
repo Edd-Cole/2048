@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const NewGame = ({setMoves, setGrid, moveTiles}) => {
+const NewGame = ({setMoves, setGrid, moveTiles, sethit2048}) => {
     const recreateGrid = () => {
         const newTile1 = Math.floor((Math.random()*16));
         const newTile2 = Math.floor((Math.random()*16));
@@ -43,6 +43,7 @@ const NewGame = ({setMoves, setGrid, moveTiles}) => {
 return (
     <section id="newGameSection">
         <button onClick={() => {
+            sethit2048(false);
             recreateGrid();
         }}>New Game</button>
     </section>

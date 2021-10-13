@@ -15,6 +15,7 @@ function App() {
         [null, null, null, null],
         [null, null, null, null]
     ])
+    const [hit2048, sethit2048] = useState(false);
 
     const [moves, setMoves] = useState(0)
 
@@ -70,7 +71,7 @@ function App() {
         } 
         // else {
         //     setGrid([
-        //         [2, 4, 8, 16],
+        //         [2048, 4, 8, 16],
         //         [32, 64, 128, 256],
         //         [512, 1024, 512, null],
         //         [null, null, null, null]
@@ -78,15 +79,15 @@ function App() {
         // }
     }
 
-    const end = EndgameConditions(grid, moveTiles, moves);
+    const end = EndgameConditions(grid, moveTiles, moves, sethit2048);
 
     return ( < div className = "App">
         <Header />
         <Score moves={moves}/>
         <h2>{end}</h2>
         <Game grid={grid}/>
-        <NewGame setMoves={setMoves} setGrid={setGrid} moveTiles={moveTiles}/>
-        <HighScores />  
+        <NewGame setMoves={setMoves} setGrid={setGrid} moveTiles={moveTiles} sethit2048={sethit2048}/>
+        <HighScores hit2048={hit2048}/>  
         </div>
     );
 }

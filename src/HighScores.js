@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const HighScores = () => {
+const HighScores = ({hit2048}) => {
     const [scores, setScores] = useState([]);
     useEffect(() => {
         fetch("https://edd-2048-backend.herokuapp.com/api/scores?sortBy=score&limit=20")
@@ -13,7 +13,7 @@ const HighScores = () => {
         .catch(error => {
             console.log(error);
         })
-    }, [])
+    }, [hit2048])
 
     return (
         <section className="highScores">
@@ -27,7 +27,7 @@ const HighScores = () => {
                 </tr>
                 {scores.map((score, index) => {
                     return (
-                        <tr>
+                        <tr key={score.id}>
                             <td>{index + 1}</td>
                             <td>{score.name}</td>
                             {/* <td>{score.highest_tile}</td>

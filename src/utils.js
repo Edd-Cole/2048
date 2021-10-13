@@ -187,4 +187,19 @@ export const checkNoMoreLegalMoves = (gridLabels) => {
     
 }
 
+export const postScore = ( moves) => {
+    return fetch("https://edd-2048-backend.herokuapp.com/api/scores", {
+        method: "POST",
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify({name: "Test", score: moves, time: "10:00", highest_tile: 2048})
+    })
+}
+
 // module.exports = {createNewGrid, moveTilesRight, moveTilesLeft, moveTilesDown, moveTilesUp, addNewTile, checkNoMoreLegalMoves}

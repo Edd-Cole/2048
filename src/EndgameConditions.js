@@ -1,8 +1,18 @@
-const EndgameConditions = (grid, moveTiles, moves) => {
+import { postScore } from "./utils";
+import { useEffect } from "react";
+
+const EndgameConditions = (grid, moveTiles, moves, sethit2048) => {
     let gameOver = grid.some(row => row.includes(2048));
+
+    useEffect(() => {
+        if(grid.some(row => row.includes(2048))) {
+            sethit2048(true);
+            return postScore(moves);
+        }
+    }, [gameOver])
     
     if(gameOver) {
-        document.removeEventListener("keydown", moveTiles)
+        document.removeEventListener("keydown", moveTiles);
         return "CONGRATULATIONS, YOU WON & YOU DID IT IN " + moves + " MOVES!";
     }
 
@@ -23,21 +33,21 @@ const EndgameConditions = (grid, moveTiles, moves) => {
    }  
 
    for (let column = 0; column < grid.length; column++) {
-    for (let tile = 0; tile < 3; tile ++) {
-        if(grid[tile][column] === null || grid[tile + 1][column] === null || grid[tile][column] === grid[tile + 1][column]) {
-            gameOverColumn = false;
-            break;
+        for (let tile = 0; tile < 3; tile ++) {
+            if(grid[tile][column] === null || grid[tile + 1][column] === null || grid[tile][column] === grid[tile + 1][column]) {
+                gameOverColumn = false;
+                break;
+            }
+        }
+        if(gameOverColumn === false) break;
+        if(column === grid.length - 1) {
+            gameOverColumn = true;
         }
     }
-    if(gameOverColumn === false) break;
-    if(column === grid.length - 1) {
-        gameOverColumn = true;
-    }
-}
 
-    if(gameOverRow && gameOverColumn) {
-        return "You lost... You only lasted " + moves + " moves :("
+        if(gameOverRow && gameOverColumn) {
+            return "You lost... You only lasted " + moves + " moves :("
+        }
     }
-}
 
 export default EndgameConditions;
