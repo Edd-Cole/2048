@@ -19,7 +19,7 @@ const EndgameConditions = (grid, moveTiles, moves, sethit2048, time) => {
             <p>Submit your score:</p>
             <form onSubmit={async(event) => {
                 event.preventDefault();
-                await postScore(moves, time, name)
+                await postScore(moves * 2, time, name)
                 .then(() => {
                     window.location.reload(true);
                 });
