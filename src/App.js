@@ -18,6 +18,7 @@ function App() {
     const [hit2048, sethit2048] = useState(false);
     const [time, setTime] = useState(0);
     const [moves, setMoves] = useState(0)
+    const [finalScore, setFinalScore] = useState({})
 
     const moveTiles = (event) => {
         if(event.which === 39) { //Right Move
@@ -69,17 +70,17 @@ function App() {
                 return moveUp.newGrid;
             })
         } 
-        // else {
-        //     setGrid([
-        //         [2048, 4, 8, 16],
-        //         [32, 64, 128, 256],
-        //         [512, 1024, 512, null],
-        //         [null, null, null, null]
-        //     ])
-        // }
+        else {
+            setGrid([
+                [2048, 4, 8, 16],
+                [32, 64, 128, 256],
+                [512, 1024, 512, null],
+                [null, null, null, null]
+            ])
+        }
     }
 
-    const end = EndgameConditions(grid, moveTiles, moves, sethit2048, time);
+    const end = EndgameConditions(grid, moveTiles, moves, hit2048, sethit2048, time, finalScore, setFinalScore);
 
     return ( < div className = "App">
         <Header />
