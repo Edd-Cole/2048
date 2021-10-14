@@ -17,7 +17,6 @@ const EndgameConditions = (grid, moveTiles, moves, hit2048, sethit2048, time, fi
     
     if(gameOver) {
         document.removeEventListener("keydown", moveTiles);
-        clearInterval(createTime)
         return (
             <section>
             <p>CONGRATULATIONS, YOU WON AND YOU DID IT IN {moves} MOVES!</p>
