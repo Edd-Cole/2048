@@ -70,14 +70,14 @@ function App() {
                 return moveUp.newGrid;
             })
         } 
-        else {
-            setGrid([
-                [2048, 4, 8, 16],
-                [32, 64, 128, 256],
-                [512, 1024, 512, null],
-                [null, null, null, null]
-            ])
-        }
+        // else {
+        //     setGrid([
+        //         [2048, 4, 8, 16],
+        //         [32, 64, 128, 256],
+        //         [512, 1024, 512, null],
+        //         [null, null, null, null]
+        //     ])
+        // }
     }
 
     const end = EndgameConditions(grid, moveTiles, moves, hit2048, sethit2048, time, finalScore, setFinalScore);
