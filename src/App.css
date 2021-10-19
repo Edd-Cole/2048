@@ -1,80 +1,60 @@
 .App {
-  text-align: center;
-  width: 95vw;
-  height: 100vh;
-  box-sizing: border-box;
+    text-align: center;
+    width: 95vw;
+    height: 100%;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-#newGameSection {
+/* #newGameSection {
     position: absolute;
-    width: 500px;
-    height: 200px;
+    height: auto;
+    width: auto;
     float: bottom;
-}
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0px;
+} */
 
-#newGameSection button {
+.newGameButton {
     width: 200px;
     height: 50px;
     color: white;
     background-color: navy;
     position: absolute;
-    float: bottom;
-    bottom: 10px;
+    left: 0px;
+    right: 60vw;
+    top: 16vh;
+    margin-right: auto;
+    margin-left: auto;
     font-size: 2em;
     font-weight: bold;
     cursor: pointer;
     border: none;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
-#newGameSection button:hover {
+.newGameButton:hover {
     opacity: 0.8;
 }
 
-#newGameSection button:active {
+.newGameButton:active {
     opacity: 0.7;
 }
 
 .gameGrid {
     background-color: royalblue;
     position: absolute;
-    left: 517px;
+    left: 0px;
+    right: 0px;
+    top: 150px;
+    margin-right: auto;
+    margin-left: auto;
     height: auto;
+    width: auto;
+    max-height: 50%;
+    max-width: 50%;
 }
 
 .gameGrid h2 {
@@ -93,10 +73,13 @@
 }
 
 .highScores {
-    position: relative;
+    position: absolute;
     float: right;
     height: auto;
-    /* width: 300px; */
+    left: 0px;
+    right: 0px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .highScoresTable {
@@ -104,6 +87,12 @@
     height: auto;
     background-color: royalblue;
     color: white;
+    position: absolute;
+    left: 65%;
+    right: 0px;
+    top: 13.5vh;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .highScoresTable th {
@@ -122,6 +111,37 @@ body {
 h1 {
     font-size: 4em;
     text-decoration: underline;
-    position: flex;
-    margin: auto;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    right: 0px;
+    margin: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h3 {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    top: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    .gameGrid {
+        background-color: royalblue;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 150px; 
+        margin-right: auto;
+        margin-left: auto;
+        height: 50%;
+        width: 50%;
+        max-height: 400px;
+        max-width: 400px;
+    }
 }

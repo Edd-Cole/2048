@@ -43,8 +43,8 @@ const NewGame = ({setMoves, setGrid, moveTiles, sethit2048, setTime}) => {
         }
     })
 return (
-    <section id="newGameSection">
-        <button onClick={() => {
+    <section>
+        <button className="newGameButton" onClick={() => {
             sethit2048(false);
             recreateGrid();
             startTime(setTime, isTiming, setIsTiming);
