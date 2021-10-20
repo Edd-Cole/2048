@@ -18,8 +18,8 @@
 } */
 
 .newGameButton {
-    width: 200px;
-    height: 50px;
+    width: 20vh;
+    height: auto;
     color: white;
     background-color: navy;
     position: absolute;
@@ -63,12 +63,12 @@
 }
 
 .gameGrid tr {
-    height: 175px;
+    height: 20vh;
     border-color: white;
 }
 
 .gameGrid tr td {
-    width: 175px;
+    width: 20vh;
     border: 1px solid lightblue;
 }
 
@@ -83,12 +83,11 @@
 }
 
 .highScoresTable {
-    width: 400px;
     height: auto;
     background-color: royalblue;
     color: white;
     position: absolute;
-    left: 65%;
+    left: 140vh;
     right: 0px;
     top: 13.5vh;
     margin-right: auto;
@@ -98,10 +97,12 @@
 .highScoresTable th {
     padding: 10px 5px 5px 3px;
     border-bottom: white 1px solid;
+    width: 10vh;
 }
 
 .highScoresTable tr {
     padding: 10px 5px;
+    width: 10vh;
 }
 
 body {
